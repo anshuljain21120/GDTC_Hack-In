@@ -43,9 +43,7 @@ while(capture_video.isOpened()):
     lower_red = np.array([170 , 120 , 70])
     upper_red = np.array([180 , 255 , 255])
     mask= cv2.inRange(hsv ,lower_red , upper_red)
-
-    mask = mask
-
+    
     #refining the mask by performing opening followed by closing
     mask = cv2.morphologyEx(mask , cv2.MORPH_OPEN , np.ones((1,1),np.uint8),iterations = 2)
     mask = cv2.morphologyEx(mask , cv2.MORPH_CLOSE , np.ones((3,3),np.uint8),iterations = 3)
